@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>   
+    <!-- computed：處理原數據，便於進行二次利用 -->
+    <div id="myApp">
+        今天新出的任天堂主機價格是：{{price}} 元
+        <br>
+        含稅的價格為：{{priceInTex}} 元
+        <br>
+        折合台幣為：{{priceTWD}} 元
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                price:29980
+            },
+            computed:{
+                priceInTex: function(price){
+                    return this.price*1.08;
+                },
+                priceTWD: function(price){
+                    return Math.round(this.price*1.08*0.37);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>   
+    <!-- componemt:定義頁面局部的區域塊，完成單獨頁面的小功能 -->
+    <div id="myApp">
+        <ol>
+            <game-item v-for="item in games" v-bind:game="item"></game-item>
+        </ol>
+    </div>
+    <script>
+        // 組件定義：game-item
+        Vue.component('game-item',{
+            props: ['game'],
+            template: '<li>{{game.title}}</li>'
+        });
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                games:[                     //games
+                    { title:'鬥地主' },      //item
+                    { title:'打麻將' },
+                    { title:'大老二' },
+                ]
+            },
+        });
+    </script>
+</body>
+</html>

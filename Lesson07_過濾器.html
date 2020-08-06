@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>   
+    <!-- filter：格式化變量內容的輸出(字母大小寫、數字計計算、日期格式化) -->
+    <div id="myApp">
+        <p>{{message}}</p>
+        <p>{{message | toupper}}</p>
+        <hr>
+        <p>現在的vue.js學習進度是 {{num}} ({{num | topercentage}})</p>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                message:'hello vue.js',
+                num:0.3
+            },
+            filters:{
+                //變為大寫
+                toupper: function(value){
+                    return value.toUpperCase();
+                },
+                topercentage: function(value){
+                    return value * 100 + '%';
+                },
+            }
+        });
+    </script>
+</body>
+</html>

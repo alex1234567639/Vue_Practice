@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>   
+    <!-- watch：與conputed相似，用於觀察變量的變化，進行相應的處理 類似onchange事件 -->
+    <div id="myApp">
+        今天新出的任天堂主機價格是：{{price}} 元
+        <br>
+        含稅的價格為：{{priceInTex}} 元
+        <br>
+        折合台幣為：{{priceTWD}} 元
+        <br>
+        <button @click="bitnClick(10000)">加10000日元</button>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                price:0,
+                priceInTex:0,
+                priceTWD:0,
+            },
+            watch:{
+                price: function(newVal,oldValue){
+                    console.log(newVal,oldValue);
+                    this.priceInTex = Math.round(this.price*1.08);
+                    this.priceTWD = Math.round(this.price*1.08*0.37);
+                }
+            },
+            methods:{
+                bitnClick: function(newPrice){
+                    this.price += newPrice;
+                }
+            }
+        });
+        myApp.price = 29980;
+    </script>
+</body>
+</html>
