@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>   
+    <!-- v-bind:class 為html標記綁定樣式單class對象 -->
+    <div id="myApp">
+        <div :class="myClass">紅色文本</div>
+        <button @click="btnClick1">改變class~</button>
+        <button @click="btnClick2">變回原樣</button>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                myClass:{
+                    active: true,
+                    big: true,
+                }
+            },
+            methods:{
+                btnClick1:function(){
+                    this.myClass.big = false;
+                },
+                btnClick2:function(){
+                    this.myClass.big = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

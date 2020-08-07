@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>   
+    <!-- setter 設置計算屬性，同步更新原數據的直 -->
+    <div id="myApp">
+        今天新出的任天堂主機價格是：{{price}} 元
+        <br>
+        含稅的價格為：{{priceInTex}} 元
+        <br>
+        折合台幣為：{{priceTWD}} 元
+        <br>
+        <button @click="btnClick(10800)">把含稅的價格改為10800</button>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                price:29980
+            },
+            computed:{
+                priceInTex: {
+                    get:function(){
+                        return this.price*1.08;
+                    },
+                    set:function(value){
+                        this.price= value / 1.08
+                    }
+                },
+                priceTWD: function(price){
+                    return Math.round(this.price*1.08*0.37);
+                }
+            },
+            methods:{
+                btnClick:function(newPrice){
+                    this.priceInTex = newPrice;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

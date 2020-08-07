@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>   
+    <!-- v-bind:class 為html標記綁定樣式單class的屬性 -->
+    <div id="myApp">
+        <div v-bind:class="{active:isActive}">紅色文本1</div>
+        <div :class="{active:isActive}">紅色文本2</div>
+        <button @click="btnClick">改變class~</button>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                isActive: true,     //若isActive為true，則賦予class name: active
+            },
+            methods:{
+                btnClick:function(){
+                    this.isActive = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

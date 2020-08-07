@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>   
+    <!-- v-if v-else-if v-else-->
+    <div id="myApp">
+        <div v-if="result==0">成績未公布</div>
+        <div v-else-if="result < 60">{{result}}分，不及格！</div>
+        <div v-else-if="result < 80">{{result}}分，還不錯喔，再加油！</div>
+        <div v-else>{{result}}分，做得很棒！</div>
+        <button @click="btnClick">隨機產生考試成績</button>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                result: 0
+            },
+            methods:{
+                btnClick:function(){
+                    this.result = Math.round(Math.random() * 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

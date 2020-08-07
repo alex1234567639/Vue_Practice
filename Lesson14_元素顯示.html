@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>   
+    <!-- v-show 標記是否顯示html元素-->
+    <div id="myApp">
+        <div v-show="result">點擊按鈕讓我消失</div>
+        <button @click="btnClick">顯示／消失按鈕</button>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                result: true
+            },
+            methods:{
+                btnClick:function(){
+                    this.result = !this.result;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
