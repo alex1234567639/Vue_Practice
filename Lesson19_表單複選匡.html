@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>   
+    <!-- v-model inout[type="checkbox"]-->
+    <div id="myApp">
+        <h4>表單複選匡</h4>
+        <input type="checkbox" id="生化危機7" value="生化危機7" v-model="game">
+        <label for="生化危機7">生化危機7</label>
+        <input type="checkbox" id="英雄聯盟" value="英雄聯盟" v-model="game">
+        <label for="英雄聯盟">英雄聯盟</label>
+        <input type="checkbox" id="塞爾達傳說" value="塞爾達傳說" v-model="game">
+        <label for="塞爾達傳說">塞爾達傳說</label>
+        <br>
+        <p>您選擇的遊戲是：{{game}}</p>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                game:[]
+            },
+            methods:{}
+        });
+    </script>
+</body>
+</html>

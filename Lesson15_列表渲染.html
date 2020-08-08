@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>   
+    <!-- v-for 循環數組元素，整理內容並顯示到頁面上-->
+    <div id="myApp">
+        <ul>
+            <li v-for="(game,index) in games">{{index+1}} {{game.title}} / 售價：{{game.price}}元</li>
+        </ul>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                games:[
+                    {title:"勇者鬥惡龍",price:500},
+                    {title:"楓之谷",price:400},
+                    {title:"超級馬力歐",price:300}
+                ]
+            },
+        });
+    </script>
+</body>
+</html>

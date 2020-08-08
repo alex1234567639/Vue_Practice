@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>   
+    <!-- v-for 循環JS對象，把對象內容循環顯示到頁面上-->
+    <div id="myApp">
+        <h4>JS對象迭代</h4>
+        <div v-for="(value,key) in mygame">
+            {{key}} : {{value}}
+        </div>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                mygame:{
+                    title:"超級馬力歐",
+                    price:400,
+                    pubdate:"2020/01/12",
+                    categaory:"小遊戲",
+                    agerange:"全年齡",
+                }
+            },
+        });
+    </script>
+</body>
+</html>

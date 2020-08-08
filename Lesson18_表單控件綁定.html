@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>   
+    <!-- v-on:(event) / @(event) 頁面元素的事件綁定，(click,keyup,load等等)-->
+    <div id="myApp">
+        <h4>事件處理器</h4>
+        <input id="input" v-on:keyup="txtKeyup($event)" type="text">
+        <button id="button" v-on:click="btnClick($event)">OK</button>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{},
+            methods:{
+                txtKeyup: function(event){
+                    this.debugLog(event);
+                },
+                btnClick: function(event){
+                    this.debugLog(event);
+                },
+                debugLog: function(event){
+                    console.log(
+                        event.srcElement.tagName,
+                        event.srcElement.id,
+                        event.srcElement.innerHTML,
+                        event.key?event.key:""       //顯示輸入的key值，若沒有則顯示空白
+                    )
+                }
+            }
+        });
+    </script>
+</body>
+</html>
