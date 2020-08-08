@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>   
+    <!-- v-model select-->
+    <div id="myApp">
+        <h4>最愛的球員：</h4>
+        <select v-model="likeNBAstar" style="width:210px">
+            <option>Harden</option>
+            <option>James</option>
+            <option>Kawaii</option>
+            <option>Alan</option>
+            <option>Lebron</option>
+        </select>
+        <h4>全明星：</h4>
+        <select v-model="likeNBAstars" multiple style="width:210px; height: 210px;">
+            <option>Harden</option>
+            <option>James</option>
+            <option>Kawaii</option>
+            <option>Alan</option>
+            <option>Durent</option>
+            <option>Kobe</option>
+            <option>Curry</option>
+            <option>Pual</option>
+            <option>Griffin</option>
+            <option>Lin</option>
+        </select>
+        <h4>選擇結果</h4>
+        <p>我最最喜歡：{{likeNBAstar}}</p>
+        <p>我的全明星：{{likeNBAstars}}</p>
+    </div>
+    <script>
+        var myApp = new Vue({
+            el: '#myApp',
+            data:{
+                likeNBAstar: null,
+                likeNBAstars: []
+            },
+            methods:{}
+        });
+    </script>
+</body>
+</html>
